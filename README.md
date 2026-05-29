@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Prajna World Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prajna World Tech is a modern web application built with [Next.js](https://nextjs.org/), [React 19](https://react.dev/), and styled with [Tailwind CSS 4](https://tailwindcss.com/). It also leverages [Framer Motion](https://www.framer.com/motion/) and [GSAP](https://gsap.com/) for rich, dynamic animations.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Before you begin, ensure you have the following installed on your machine:
+- **Node.js** (v18.17 or higher recommended)
+- **npm** (recommended as package-lock.json is present), **yarn**, or **pnpm**
 
-## React Compiler
+## Installation Guide
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Follow these steps to set up the project locally:
 
-## Expanding the ESLint configuration
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/thapaprogress/Prajna_drafty_website.git
+   cd prajna-world-tech
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. **Install dependencies**
+   Using npm:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. **Optimize assets (Optional)**
+   This project includes a local script to optimize video frames using Sharp. You can run it if you need to re-optimize visual assets:
+   ```bash
+   npm run optimize:frames
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   Once the server starts, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Build for Production
+
+To create an optimized production build, run:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+After the build completes, you can start the production server with:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run start
 ```
+
+## Available Scripts
+
+- `npm run dev`: Runs the app in development mode.
+- `npm run build`: Builds the app for production to the `.next` folder.
+- `npm run start`: Starts the production server.
+- `npm run lint`: Runs ESLint to check for code issues.
+- `npm run optimize:frames`: Runs the local script (`scripts/optimizeFrames.js`) to optimize frames.
